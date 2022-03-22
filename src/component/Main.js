@@ -21,25 +21,22 @@ const Main = () => {
 
     return (
         <>
-            <div className="App">
-                <header className="Movie-App">
-                </header>
-                <body>
-                    <Nav />
-                    <div className="container">
-                        <h3>Trending Movies</h3>
-                    </div>
-                    <div className="row">
-                        {
-                            (movieData.length == 0) ? <p>Not Found</p> : movieData.map((res, pos) => {
-                                return (
-                                    <Card info={res} key={pos} />
-                                )
-                            })
-                        }
-                    </div>
-                </body>
+            <div class="container">
+            <div className="row">
+                <div className="col-4"></div>
+                <div className="col"><h3>Trending Movies</h3></div>
+            </div>           
             </div>
+            <div className="row">
+                    {
+                        (movieData.length == 0) ? <p>Not Found</p> : movieData.map((res, pos) => {
+                            return (
+                                <Card info={res} key={pos} />
+                            )
+                        })
+                    }
+                </div>
+
         </>
     );
 }

@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import CarouselSlide from "./CarouselSlide";
 import Nav from "./Nav";
+import Slide from "./Slide";
+import SlideShow from "./SlideShow";
 
 let API_KEY = "f5baf8c74c7d5f00a242c165979d0913"
 let base_url = "https://api.themoviedb.org/3"
@@ -19,11 +21,11 @@ const Upcoming = () => {
 
     return (
         <>
-            <div className="App">
+            {/* <div className="App">
                 <header className="Movie-App">
-                </header>
+                </header> */}
                 <body>
-                    <Nav />
+                    {/* <Nav /> */}
                     <div className="container">
                         <h3>Upcoming Movies</h3>
                     </div>
@@ -31,14 +33,15 @@ const Upcoming = () => {
                         {
                             (movieData.length == 0) ? <p>Not Found</p> : movieData.map((res, pos) => {
                                 return (
-                                    <CarouselSlide info={res} key={pos} />
+                                    <Slide info={res} key={pos} />
                                 )
                             })
                         }
                     </div>
                 </body>
-            </div>
+            {/* </div> */}
         </>
     );
 }
+
 export default Upcoming;
