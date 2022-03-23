@@ -21,13 +21,13 @@ const Main = () => {
 
     return (
         <>
-            <div class="container">
-            <div className="row">
-                <div className="col-4"></div>
-                <div className="col"><h3>Trending Movies</h3></div>
-            </div>           
-            </div>
-            <div className="row">
+            <div class="container">                
+                <div class="container h-100">
+                    <div class="d-flex justify-content-md-center align-items-center">
+                    <h3>Trending Movies</h3>
+                    </div>
+                </div>
+                <div className="row">
                     {
                         (movieData.length == 0) ? <p>Not Found</p> : movieData.map((res, pos) => {
                             return (
@@ -36,6 +36,8 @@ const Main = () => {
                         })
                     }
                 </div>
+            </div>
+
 
         </>
     );

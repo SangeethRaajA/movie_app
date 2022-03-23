@@ -21,25 +21,23 @@ const Upcoming = () => {
 
     return (
         <>
-            {/* <div className="App">
-                <header className="Movie-App">
-                </header> */}
-                <body>
-                    {/* <Nav /> */}
-                    <div className="container">
-                        <h3>Upcoming Movies</h3>
+            <body>
+                <div class="container h-100">
+                    <div class="d-flex justify-content-md-center align-items-center">
+                    <h3>Upcoming Movies</h3>
                     </div>
-                    <div className="row">
-                        {
-                            (movieData.length == 0) ? <p>Not Found</p> : movieData.map((res, pos) => {
-                                return (
-                                    <Slide info={res} key={pos} />
-                                )
-                            })
-                        }
-                    </div>
-                </body>
-            {/* </div> */}
+                </div>
+
+                <div className="container-fluid">
+                    {
+                        (movieData.length == 0) ? <p>Not Found</p> : movieData.map((res, pos) => {
+                            return (
+                                <Slide info={res} key={pos} />
+                            )
+                        })
+                    }
+                </div>
+            </body>
         </>
     );
 }

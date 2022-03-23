@@ -14,10 +14,10 @@ const Nav = () => {
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
                 <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <Link to="/" class="nav-link">Home</Link>
+                        <Link to="/" class="nav-link"><h5> Home </h5></Link>
                     </li>
                     <li class="nav-item">
-                        <Link to="/upcoming" class="nav-link">Upcoming Movies</Link>
+                        <Link to="/upcoming" class="nav-link"><h5> Upcoming Movies</h5></Link>
                     </li>
                 </ul>
             </nav>
@@ -25,7 +25,7 @@ const Nav = () => {
                 <Route exact path='/' element={<Main />} />
                 <Route path='/upcoming' element={<Upcoming />} />
             </Routes>
-            
+
         </Router>
     )
 }
