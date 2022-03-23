@@ -10,6 +10,9 @@ const Card = (movie) => {
                 <div class="card-body">
                     <h5 class="card-title">{movie.info.original_title}</h5>
                 </div>
+                <div className="overview">
+                    {/* {movie.info.overview} */}
+                </div>
             </div>
             <br></br>
         </div>
