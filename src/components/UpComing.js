@@ -1,9 +1,5 @@
 import React, { useEffect, useState } from "react";
 import Card from "./Card";
-import CarouselSlide from "./CarouselSlide";
-import Nav from "./Nav";
-import Slide from "./Slide";
-import SlideShow from "./SlideShow";
 
 let API_KEY = "f5baf8c74c7d5f00a242c165979d0913"
 let base_url = "https://api.themoviedb.org/3"
@@ -17,6 +13,7 @@ const Upcoming = () => {
     useEffect(() => {
         fetch(url_set).then(res => res.json()).then(data => {
             setData(data.results);
+            setUrl(data.results);
         });
     }, [url_set])
 
@@ -31,7 +28,7 @@ const Upcoming = () => {
 
                 <div className="row">
                     {
-                        (movieData.length == 0) ? <p>Not Found</p> : movieData.map((res, pos) => {
+                        (movieData.length === 0) ? <p>Not Found</p> : movieData.map((res, pos) => {
                             return (
                                 <Card info={res} key={pos} />
                             )
