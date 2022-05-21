@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Card from "./Card";
 import CarouselSlide from "./CarouselSlide";
 import Nav from "./Nav";
 import Slide from "./Slide";
@@ -28,11 +29,11 @@ const Upcoming = () => {
                     </div>
                 </div>
 
-                <div className="container-fluid">
+                <div className="row">
                     {
                         (movieData.length == 0) ? <p>Not Found</p> : movieData.map((res, pos) => {
                             return (
-                                <Slide info={res} key={pos} />
+                                <Card info={res} key={pos} />
                             )
                         })
                     }
