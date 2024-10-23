@@ -16,12 +16,13 @@ const LayoutMain = ({ children }) => {
           width: "100%",
           display: "flex",
           alignItems: "center",
+          marginTop:-20
         }}
       >
         <Navbar />
       </Header>
       <Layout>
-        <Content style={{ padding: 15 }}>{children}</Content>
+        <Content>{children}</Content>
         <Sider
           width="25%"
           style={{ textAlign: "center", padding: 10, display: "block" }}

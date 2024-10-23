@@ -9,18 +9,20 @@ const Navbar = () => {
         <Dropdown
           menu={{
             items: [
+              
               {
                 key: "1",
-                label: <Link to="/">Home</Link>,
-              },
-              {
-                key: "2",
                 label: <Link to="/movies">Movies</Link>,
               },
               {
-                key: "3",
+                key: "2",
                 label: <Link to="/series">Series</Link>,
               },
+              {
+                key: "3",
+                label: <Link to="/search">Search</Link>,
+              },
+              
             ],
           }}
           placement="bottomLeft"

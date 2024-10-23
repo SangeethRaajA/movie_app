@@ -2,12 +2,14 @@ import { Row } from "antd";
 import { useEffect, useState } from "react";
 import CardTemplate from "../../components/Card/CardTemplate";
 import FilterComponent from "../../components/Filter/FilterComponent";
+import Search from "antd/es/transfer/search";
 
 let API_KEY = "f5baf8c74c7d5f00a242c165979d0913";
 let base_url = "https://api.themoviedb.org/3";
 
-const Dashboard = () => {
+const SearchPage = () => {
   const [movieData, setMovieData] = useState([]);
+  const [selectMovie, setSelectMovie] = useState({});
   const [genres, setGenres] = useState([]);
   const [mType, setMType] = useState("movie");
   const [genre, setGenre] = useState("");
@@ -34,6 +36,7 @@ const Dashboard = () => {
     try {
       const response = await fetch(url);
       const data = await response.json();
+      setSelectMovie(data.results[0]);
       setMovieData(data.results || []);
     } catch (error) {
       console.error("Error fetching movies:", error);
@@ -65,8 +68,14 @@ const Dashboard = () => {
         {movieData.length === 0 ? (
           <p>Not Found</p>
         ) : (
-          movieData.map((res) => {
-            return <CardTemplate info={res} key={res.id} />;
+          movieData.map((res, pos) => {
+            return (
+              <CardTemplate
+                movie={res}  
+                selectMovie={setSelectMovie} 
+                key={pos}
+              />
+            );
           })
         )}
       </Row>
@@ -74,4 +83,4 @@ const Dashboard = () => {
   );
 };
 
-export default Dashboard;
+export default SearchPage;

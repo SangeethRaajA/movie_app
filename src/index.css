@@ -11,3 +11,23 @@ body {
     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
       monospace;
   }
+
+  .hero {
+    min-height: 500px;
+    background-position: top center;
+    color: #fff;
+    background-size: cover;
+    display: flex;
+    align-items: flex-end;
+  }
+
+  .hero-context{
+    max-width: 70%;
+    padding-bottom: 100px;
+    margin: 5%;
+  }
+
+  .hero-title{
+    font-size: 72px;
+    margin: 0;
+  }

@@ -1,9 +1,10 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Dashboard from "./pages/Dashboard/Dashboard";
 import Movies from "./pages/Movies/Movies";
 import Series from "./pages/Series/Series";
 import LayoutMain from "./components/Layout/LayoutMain";
 import { ConfigProvider } from "antd";
+import Home from "./pages/Home/Home";
+import SearchPage from "./pages/Search/SearchPage";
 
 const App = () => {
   const router = createBrowserRouter([
@@ -11,7 +12,15 @@ const App = () => {
       path: "/",
       element: (
         <LayoutMain>
-          <Dashboard />
+          <Home />
+        </LayoutMain>
+      ),
+    },
+    {
+      path: "/search",
+      element: (
+        <LayoutMain>
+          <SearchPage />
         </LayoutMain>
       ),
     },
@@ -30,14 +39,14 @@ const App = () => {
           <Series />
         </LayoutMain>
       ),
-    },
+    }    
   ]);
   return (
     <>
       <ConfigProvider
         theme={{
           token: {
-            borderRadius: 8,
+            borderradius: 8,
             fontSize: 16,
           },
         }}

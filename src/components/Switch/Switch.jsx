@@ -7,9 +7,9 @@ const Switch = ({ name }) => {
       gap="middle"
       justify="start"
       align="center"
-      style={{ paddingLeft: 15 }}
+      style={{ paddingLeft: 15, paddingTop:20}}
     >
-      <h2 style={{ color: "#001529" }}>{name}</h2>
+      <h2 style={{ color: "#001529", paddingLeft: 15 }}>{name}</h2>
 
       <Button size="large">
         <Link to="/movies">Movies</Link>
