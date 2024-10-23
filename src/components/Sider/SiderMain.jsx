@@ -1,12 +1,13 @@
-import React, { useEffect, useState } from "react";
-import Card from "./Card";
+import { Flex, Row } from "antd";
+import { useEffect, useState } from "react";
+import SiderCard from "../SiderCard/SiderCard";
 
 let API_KEY = "f5baf8c74c7d5f00a242c165979d0913";
 let base_url = "https://api.themoviedb.org/3";
-let sub_url = "/movie/upcoming?api_key=";
+let sub_url = "/trending/all/day?api_key=";
 let url = base_url + sub_url + API_KEY;
 
-const Upcoming = () => {
+const SiderMain = () => {
   const [movieData, setData] = useState([]);
   const [url_set, setUrl] = useState(url);
 
@@ -15,31 +16,26 @@ const Upcoming = () => {
       .then((res) => res.json())
       .then((data) => {
         setData(data.results);
-        setUrl(data.results);
-      });
+      })
+      .catch((err) => console.error("Error fetching data: ", err));
   }, [url_set]);
 
   return (
     <>
-      <div class="container">
-        <div class="container h-100">
-          <div class="d-flex justify-content-md-center align-items-center">
-            <h3>Upcoming Movies</h3>
-          </div>
-        </div>
-
-        <div className="row">
+    <h2 style={{ color: "#fff" }}>Trending</h2>
+      <Flex align="stretch" justify="space-around">
+      <Row justify="space-around">
           {movieData.length === 0 ? (
             <p>Not Found</p>
           ) : (
             movieData.map((res, pos) => {
-              return <Card info={res} key={pos} />;
+              return <SiderCard info={res} key={pos} />;
             })
           )}
-        </div>
-      </div>
+        </Row>
+      </Flex>
     </>
   );
 };
 
-export default Upcoming;
+export default SiderMain;
