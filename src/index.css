@@ -24,6 +24,7 @@ code {
   min-height: 500px;
   background-position: top center;
   color: #fff;
+  text-shadow: 2px 2px #000000;
   background-size: cover;
   display: flex;
   align-items: flex-end;
@@ -48,7 +49,6 @@ code {
   display: contents;
 }
 
-
 @media screen and (max-width: 768px) {
   .nav-mob{
     display: contents;
@@ -58,5 +58,14 @@ code {
   }
   .trending{
     display: none;
+  }
+  .hero-title {
+    font-size: 56px;
+  }
+  
+  .hero-context {
+    max-width: 100%;
+    padding-bottom: 50px;
+    margin: 0;
   }
 }

@@ -34,7 +34,7 @@ const LayoutMain = ({ children }) => {
         </Sider>
       </Layout>
       <Footer style={{ textAlign: "center" }}>
-        Movies Night © {new Date().getFullYear()} v1.1.1
+        Movies Night © {new Date().getFullYear()} v1.2.1
       </Footer>
     </Layout>
   );

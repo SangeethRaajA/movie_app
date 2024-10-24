@@ -8,7 +8,7 @@ const HeroSection = ({ movie }) => {
       <div
         className="hero"
         style={{
-          padding: 25,
+          padding: 20,
           backgroundImage: `url(${IMAGE_PATH}${movie.backdrop_path})`,
         }}
       >

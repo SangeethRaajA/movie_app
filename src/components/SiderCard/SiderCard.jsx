@@ -1,40 +1,79 @@
-import { Col, Flex, Image } from "antd";
-import { convertLegacyProps } from "antd/es/button";
+import { Card, Space } from "antd";
+const IMAGE_PATH = "https://image.tmdb.org/t/p/w1280";
 
-const SiderCard = (movie) => {
-  let image_path = "https://image.tmdb.org/t/p/w500";
-
+const SiderCard = ({ movie, selectMovie }) => {
   return (
-    <Flex
-      gap="middle"
-      justify="flex-evenly"
-      align="center"
-      style={{
-        padding: 10,
-        margin: 10,
-        background:"rgba(150, 150, 150, 0.5)",
-        
-        width: 300,
-        height: 75,
-        borderRadius: 20,
-      }}
-    >
-      <Col span={5}>
-        <Image
-          alt=".."
-          src={image_path + movie.info.poster_path}
-          height={50}
-          width={50}
-          borderRadius={25}
-          style={{objectFit:"cover"}}
-        />
-      </Col>
-      <Col span={16}>
-        <h4 style={{ fontStyle: "oblique" }}>
-          {movie.info.name ? movie.info.name : movie.info.title}
-        </h4>
-      </Col>
-    </Flex>
+    <div onClick={() => selectMovie(movie)}>
+      <Card
+        hoverable
+        style={{
+          margin: 10,
+          borderRadius: 15,
+          width: 300,
+          height: 75,
+          padding: "10px",
+          display: "flex",
+          alignItems: "center",
+          background: `url(${IMAGE_PATH}${movie.backdrop_path}) no-repeat center center`,
+          backgroundSize: "cover",
+        }}
+      >
+        <Space
+          align="center"
+          size="small"
+          direction="horizontal"
+        >
+          <Card
+            hoverable
+            style={{
+              width: 50,
+              height: 50,
+              marginRight: "15px",
+              objectFit: "cover",
+              borderRadius: "8px",
+              overflow: "hidden",
+            }}
+            cover={
+              <img
+                alt={movie.title || movie.name}
+                src={IMAGE_PATH + movie.poster_path}
+              />
+            }
+          />
+
+          <h2
+            style={{
+              fontSize: "16px",
+              fontWeight: "bold",
+              color: "#fff",
+              textShadow: "2px 2px #000000",
+              flex: 1,
+              textAlign: "left",
+            }}
+          >
+            {movie.title ? movie.title : movie.name}
+          </h2>
+
+          <p
+            style={{
+              background: "yellow",
+              width: 25,
+              height: 25,
+              borderRadius: "50%",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              marginLeft: "10px",
+              fontSize: "14px",
+              fontWeight: "bold",
+              float: "right"
+            }}
+          >
+            {movie.vote_average.toFixed(1)}
+          </p>
+        </Space>
+      </Card>
+    </div>
   );
 };
 

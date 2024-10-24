@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Row } from "antd";
+import { Pagination, Row, Space } from "antd";
 import React from "react";
 import CardTemplate from "../../components/Card/CardTemplate";
 import HeroSection from "../../components/Hero/HeroSection";
@@ -7,9 +7,13 @@ import HeroSection from "../../components/Hero/HeroSection";
 let API_KEY = "f5baf8c74c7d5f00a242c165979d0913";
 let base_url = "https://api.themoviedb.org/3";
 
+const PAGE_SIZE = 12;
+
 const Series = () => {
   const [movieData, setMovieData] = useState([]);
   const [selectMovie, setSelectMovie] = useState({});
+  const [currentPage, setCurrentPage] = useState(1);
+
 
   const fetchMovies = async () => {
     const url = base_url + "/discover/tv?api_key=" + API_KEY;
@@ -26,16 +30,27 @@ const Series = () => {
   useEffect(() => {
     fetchMovies();
   }, []);
+
+  const handlePageChange = (page) => {
+    setCurrentPage(page);
+  };
+
+  const startIndex = (currentPage - 1) * PAGE_SIZE;
+  const paginatedMovies = movieData.slice(startIndex, startIndex + PAGE_SIZE);
+  
   return (
-    <div>
+    <>
       <Row>
         <HeroSection movie={selectMovie} />
       </Row>
-      <Row justify="space-around">
-        {movieData.length === 0 ? (
+      <Row
+        justify="space-around"
+        style={{ paddingTop: 15, backgroundColor: "" }}
+      >
+        {paginatedMovies.length === 0 ? (
           <p>Not Found</p>
         ) : (
-          movieData.map((res, pos) => {
+          paginatedMovies.map((res, pos) => {
             return (
               <CardTemplate
                 movie={res}
@@ -46,7 +61,19 @@ const Series = () => {
           })
         )}
       </Row>
-    </div>
+
+      <Row justify="center" style={{ marginTop: 20 }}>
+        <Space direction="vertical">
+          <Pagination
+            current={currentPage}
+            total={movieData.length}
+            pageSize={PAGE_SIZE}
+            onChange={handlePageChange}
+            showSizeChanger={false}
+          />
+        </Space>
+      </Row>
+    </>
   );
 };
 

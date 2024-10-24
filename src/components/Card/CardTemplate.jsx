@@ -1,14 +1,15 @@
 import { Card, Col } from "antd";
 
+const image_path = "https://image.tmdb.org/t/p/w500";
+
 const CardTemplate = ({ movie, selectMovie }) => {
-  let image_path = "https://image.tmdb.org/t/p/w500";
   return (
     <div style={{ padding: 20 }} onClick={() => selectMovie(movie)}>
       <Col span={6}>
         <Card
           hoverable
           style={{ width: 240 }}
-          cover={<img alt="..." src={image_path + movie.poster_path} />}
+          cover={<img alt="..." src={image_path + movie.poster_path} style={{}} />}
         >
           <Card.Meta
             title={movie.name ? movie.name : movie.title}
