@@ -1,33 +1,62 @@
 body {
-    margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-      sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
-  
-  code {
-    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-      monospace;
-  }
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
 
-  .hero {
-    min-height: 500px;
-    background-position: top center;
-    color: #fff;
-    background-size: cover;
-    display: flex;
-    align-items: flex-end;
-  }
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+.contentStyle{
+  min-height: 500px;
+  color: #fff;
+  background-size: cover;
+  background-position: top center;
+  display: flex;
+  align-items: flex-end;
+}
 
-  .hero-context{
-    max-width: 70%;
-    padding-bottom: 100px;
-    margin: 5%;
-  }
+.hero {
+  min-height: 500px;
+  background-position: top center;
+  color: #fff;
+  background-size: cover;
+  display: flex;
+  align-items: flex-end;
+}
 
-  .hero-title{
-    font-size: 72px;
-    margin: 0;
+.hero-context {
+  max-width: 70%;
+  padding-bottom: 100px;
+  margin: 5%;
+}
+
+.hero-title {
+  font-size: 72px;
+  margin: 0;
+}
+.nav-mob {
+  display: none;
+  background-color: rgb(27, 68, 121);
+}
+
+.nav-desk {
+  display: contents;
+}
+
+
+@media screen and (max-width: 768px) {
+  .nav-mob{
+    display: contents;
   }
+  .nav-desk {
+    display: none;
+  }
+  .trending{
+    display: none;
+  }
+}

@@ -2,7 +2,7 @@ import { Row } from "antd";
 import { useEffect, useState } from "react";
 import CardTemplate from "../../components/Card/CardTemplate";
 import FilterComponent from "../../components/Filter/FilterComponent";
-import Search from "antd/es/transfer/search";
+import HeroSection from "../../components/Hero/HeroSection";
 
 let API_KEY = "f5baf8c74c7d5f00a242c165979d0913";
 let base_url = "https://api.themoviedb.org/3";
@@ -56,7 +56,11 @@ const SearchPage = () => {
 
   return (
     <>
-      <Row justify="start">
+      
+      <Row>
+      <HeroSection movie={selectMovie} />
+      </Row>
+      <Row justify="space-around" style={{ padding: "10px", backgroundColor:"InfoBackground" }} >
         <FilterComponent
           onFilter={handleFilter}
           genres={genres}

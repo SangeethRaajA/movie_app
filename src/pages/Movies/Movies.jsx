@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Row } from "antd";
 import React from "react";
 import CardTemplate from "../../components/Card/CardTemplate";
-import Switch from "../../components/Switch/Switch";
+import HeroSection from "../../components/Hero/HeroSection";
 
 let API_KEY = "f5baf8c74c7d5f00a242c165979d0913";
 let base_url = "https://api.themoviedb.org/3";
@@ -29,7 +29,10 @@ const Movies = () => {
 
   return (
     <div>
-      <Switch name="Latest Movies" />
+
+      <Row>
+      <HeroSection movie={selectMovie} />
+      </Row>
       <Row justify="space-around">
         {movieData.length === 0 ? (
           <p>Not Found</p>
@@ -37,8 +40,8 @@ const Movies = () => {
           movieData.map((res, pos) => {
             return (
               <CardTemplate
-                movie={res}  
-                selectMovie={setSelectMovie} 
+                movie={res}
+                selectMovie={setSelectMovie}
                 key={pos}
               />
             );
