@@ -1,4 +1,5 @@
-import { Card, Space } from "antd";
+import { Button, Card, Space } from "antd";
+import { Link } from "react-router-dom";
 const IMAGE_PATH = "https://image.tmdb.org/t/p/w1280";
 
 const SiderCard = ({ movie, selectMovie }) => {
@@ -14,6 +15,7 @@ const SiderCard = ({ movie, selectMovie }) => {
           padding: "10px",
           display: "flex",
           alignItems: "center",
+          backgroundColor:"Gray",
           background: `url(${IMAGE_PATH}${movie.backdrop_path}) no-repeat center center`,
           backgroundSize: "cover",
         }}

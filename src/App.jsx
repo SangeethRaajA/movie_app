@@ -5,6 +5,8 @@ import LayoutMain from "./components/Layout/LayoutMain";
 import { ConfigProvider } from "antd";
 import Home from "./pages/Home/Home";
 import SearchPage from "./pages/Search/SearchPage";
+import NotFoundPage from "./pages/Error/NotFoundPage";
+import ProfilePage from "./pages/Profile/ProfilePage";
 
 const App = () => {
   const router = createBrowserRouter([
@@ -15,6 +17,7 @@ const App = () => {
           <Home />
         </LayoutMain>
       ),
+      errorElement: <NotFoundPage />,
     },
     {
       path: "/search",
@@ -39,7 +42,15 @@ const App = () => {
           <Series />
         </LayoutMain>
       ),
-    }    
+    }  ,
+    {
+      path: "/movies/:profileId",
+      element: (
+        <LayoutMain>
+          <ProfilePage />
+        </LayoutMain>
+      ),
+    }  
   ]);
   return (
     <>
